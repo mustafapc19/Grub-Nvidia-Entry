@@ -1,5 +1,6 @@
+I am not author of this repo. Just a fellow forker.
 # Grub-Nvidia-Entry
-If you installed Nvidia drivers through [Negativo17](https://negativo17.org/nvidia-driver/) or [RPMfusion](https://rpmfusion.org/Howto/NVIDIA), the Nvidia card would always be on by default. As the dedicated GPU consumes a lot of power, it is a significant problem to those using laptops.
+If you installed Nvidia drivers through [Negativo17](https://negativo17.org/nvidia-driver/) , the Nvidia card would always be on by default. As the dedicated GPU consumes a lot of power, it is a significant problem to those using laptops.
 
 ## Features
 *	`grub-nvidia-entry.sh` makes Grub load Nouveau instead of Nvidia drivers on normal basis and creates a new entry which loads Nvidia drivers.
@@ -13,7 +14,7 @@ If you installed Nvidia drivers through [Negativo17](https://negativo17.org/nvid
 
 ## Prerequisites
 *   UEFI
-*   Nvidia proprietary drivers from [Negativo17](https://negativo17.org/nvidia-driver/) or [RPMfusion](https://rpmfusion.org/Howto/NVIDIA)
+*   Nvidia proprietary drivers from [Negativo17](https://negativo17.org/nvidia-driver/) 
 
 ## Supported Operating Systems
 *   Fedora 26 ~ 29
@@ -57,7 +58,3 @@ Full installation overwrites `/usr/lib/systemd/system/switcheroo-control.service
 *   There's an [upstream bug](https://bugzilla.redhat.com/show_bug.cgi?id=1476366) that [prevents Gnome from detecting dedicated GPU](https://github.com/Superdanby/Grub-Nvidia-Entry/issues/2) when Secure Boot is on. `DRI_PRIME=1` works fine though. A workaround is to disable Secure Boot for now.
 *   Upstream [made a change](https://bugzilla.gnome.org/show_bug.cgi?id=796315) to disable GDM's ability to launch Wayland backend if Nvidia proprietary drivers are used. However, GDM seems to be not regaining the ability even after the drivers are unloaded[need confirmation]. A workaround is applied in the commit,  [382ddeb](https://github.com/Superdanby/Grub-Nvidia-Entry/commit/382ddeb19e92282a4a4c55091c8b0615ce294e8e).
 
-## Todo
-*	RPM package
-*	Better documentation for user to check what went wrong.
-*	Gnome extension

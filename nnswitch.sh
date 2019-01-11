@@ -16,9 +16,9 @@ if [[ $1 == 'start' ]]; then
     while [[ `systemctl status gdm | grep -w active` != '' ]]; do
 	    sudo systemctl stop gdm
     done
-    while [[ `lsmod | grep nouveau` != '' ]]; do
-    	sudo modprobe -r nouveau
-    done
+    #while [[ `lsmod | grep nouveau` != '' ]]; do
+    #	sudo modprobe -r nouveau
+    #done
     sudo modprobe nvidia
     sudo modprobe nvidia_modeset
     sudo modprobe nvidia_drm
@@ -50,7 +50,7 @@ if [[ $1 == 'stop' ]]; then
         sudo modprobe -r nvidia
     done
     rm -f /dev/nvidiactl /dev/nvidia0 /dev/nvidia-modeset
-    sudo modprobe nouveau
+    #sudo modprobe nouveau
     sudo systemctl restart gdm-nvidia-wayland-switch.service
     sudo systemctl start gdm
     exit 0
